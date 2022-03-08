@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "dummy_weather": {
+            "type": "object",
+            "form": "true",
+            "title": "Service configuration",
+            "properties": {
+                "REPLICA_COUNT": {
+                    "type": "integer",
+                    "title": "Service replicas",
+                    "description": "Number of replicas of the service to launch",
+                    "form": true
+                }              
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dummyweather-message
+data:
+  MESSAGE: {{ .Values.CONFIG.MESSAGE }}
+

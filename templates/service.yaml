@@ -1,0 +1,15 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: dummy-weather-{{ .Release.Name }}
+spec:
+  type: ClusterIP
+  ports:
+    - name: dummy-weather-{{ .Release.Name }}
+      port: 31500
+      targetPort: 5000
+      protocol: TCP
+  selector:
+    app: dummy_weather-{{ .Release.Name }}
+    release: dummy_weather-{{ .Release.Name }}

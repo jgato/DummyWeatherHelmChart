@@ -1,0 +1,10 @@
+######
+# Configuration for the different
+# resources
+######
+
+DUMMY_WEATHER:
+  REPLICA_COUNT: 3
+
+CONFIG:
+  MESSAGE: "random predictions are fun but accurate"

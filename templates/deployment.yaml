@@ -1,0 +1,29 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummy-weather-{{ .Release.Name }}
+spec:
+  replicas: {{ .Values.DUMMY_WEATHER.REPLICA_COUNT }}
+  selector: 
+    matchLabels:
+      app: dummy_weather-{{ .Release.Name }}
+      release: dummy_weather-{{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: dummy_weather-{{ .Release.Name }}
+        release: dummy_weather-{{ .Release.Name }}
+    spec:
+      containers:
+        - name: dummy-weather-{{ .Release.Name }}
+          image: "quay.io/jgato/dummyweather:latest"
+          envFrom:
+            - configMapRef:
+                name: dummyweather-message
+          ports:
+            - name: http
+              containerPort: 5000
+              protocol: TCP
+
+
